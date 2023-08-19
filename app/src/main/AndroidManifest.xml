@@ -87,6 +87,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".faculty.AddFaculty"
+            android:exported="false" />
+        <activity
+            android:name=".faculty.AllTearchers"
+            android:exported="false" />
+        <activity
             android:name=".course.CoursePage"
             android:exported="false" />
         <activity

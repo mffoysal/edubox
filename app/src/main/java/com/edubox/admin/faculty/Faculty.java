@@ -26,6 +26,7 @@ public class Faculty implements Serializable {
     private String nidBirth;
     private String uId;
     private String sync_key;
+    private String key;
     private int sync_status;
     private int departmentId;
 
@@ -43,6 +44,14 @@ public class Faculty implements Serializable {
 
     public void setsId(String sId) {
         this.sId = sId;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getUniqueId() {
