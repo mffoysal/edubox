@@ -12,11 +12,13 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.edubox.admin.R;
+import com.edubox.admin.wifi.HotspotManager;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -29,12 +31,19 @@ public class WifiWeb extends AppCompatActivity {
     private WebServerTwo webServer;
     private static final int PORT = 3697;
     private ImageView qrId;
+    private TextView hotspotUrlTextView;
+    private WebServerTwo webServer1;
+    private HotspotManager hotspotManager;
     private ToggleButton server1, server2, server3, server4, server5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi_web);
+        hotspotManager = new HotspotManager(this);
+        hotspotUrlTextView = findViewById(R.id.sessionName);
+
+//        getIp();
 
         qrId =  findViewById(R.id.recImage);
         server1 = findViewById(R.id.toggleButton);
@@ -47,8 +56,10 @@ public class WifiWeb extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     startWebServer();
+                    getIp();
                 } else {
                     stopWebServer();
+                    getIp();
                 }
             }
         });
@@ -92,6 +103,17 @@ public class WifiWeb extends AppCompatActivity {
 
     }
 
+    private void getIp() {
+        String hotspotIpAddress = hotspotManager.getWifiIpAddress();
+        if (hotspotIpAddress != null) {
+            String url = "http://" + hotspotIpAddress + ":" + PORT + "/";
+            hotspotUrlTextView.setText(""+ url);
+            Log.d("Hotspot", "Hotspot URL: " + url);
+        } else {
+            hotspotUrlTextView.setText("Hotspot URL: Not available");
+            Log.e("Hotspot", "Failed to obtain hotspot IP address.");
+        }
+    }
 
 
     private void startWebServer() {
@@ -189,6 +211,27 @@ public class WifiWeb extends AppCompatActivity {
         }
     }
 
+
+    private void startHotspot() {
+        String ssid = "edubox";
+        String password = "edubox@3697";
+        boolean success = hotspotManager.startHotspot(ssid, password);
+        if (success) {
+            String hotspotIpAddress = hotspotManager.getHotspotIpAddress();
+            if (hotspotIpAddress != null) {
+                String url = "http://" + hotspotIpAddress + ":" + webServer.PORT + "/";
+                Log.d("Hotspot", "Hotspot URL: " + url);
+            }
+        } else {
+            Log.e("Hotspot", "Failed to start hotspot.");
+        }
+    }
+
+    private void stopHotspot() {
+        hotspotManager.stopHotspot();
+    }
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -217,6 +260,7 @@ public class WifiWeb extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        stopHotspot();
         stopWebServer();
     }
 }

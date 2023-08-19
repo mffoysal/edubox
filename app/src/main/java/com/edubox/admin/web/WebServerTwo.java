@@ -19,6 +19,7 @@ import fi.iki.elonen.NanoHTTPD;
 public class WebServerTwo extends NanoHTTPD {
     private static final String INDEX_HTML_PATH = "indexx.html";
     private static final String PROFILE_HTML_PATH = "profile.html";
+    public int PORT;
     private Map<String, String> sessionMap = new HashMap<>();
     private Context context;
     private IHTTPSession session;
@@ -30,6 +31,7 @@ public class WebServerTwo extends NanoHTTPD {
 
     public WebServerTwo(Context context, int port) {
         super(port);
+        this.PORT=port;
         this.context = context;
     }
 
