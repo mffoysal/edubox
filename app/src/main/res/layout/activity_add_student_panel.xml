@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".std.AddStudentPanel">
+
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".scl.schoolUpload">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:background = "@drawable/lavender_border"
+                android:padding="5dp"
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Student Form"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textColor="@color/lavenda"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/uploadImage"
+                    android:src="@drawable/baseline_person_4_24" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/selectDepHint"
+                        android:hint="Select Department"
+                        android:textColorHint="@color/lavenda"
+                        android:visibility="invisible"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/selectDepId">
+
+                    </Spinner>
+                </FrameLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="Select Department"
+                    app:helperText="Required"
+                    app:helperTextTextColor="@color/lavenda"
+                    app:startIconDrawable="@drawable/baseline_person_pin_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/selectDepartmentId">
+
+                    </AutoCompleteTextView>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:helperText="Required"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="30"
+                    app:endIconMode="clear_text"
+                    app:helperTextTextColor="@color/lavenda"
+                    app:startIconDrawable="@drawable/baseline_add_card_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Enter Student ID">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:id="@+id/stdId"
+                        android:maxLength="30">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="Select Gender"
+                    app:helperText="Required"
+                    app:helperTextTextColor="@color/lavenda"
+                    app:startIconDrawable="@drawable/baseline_person_pin_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/genderId">
+
+                    </AutoCompleteTextView>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="Select Religion"
+                    app:helperText="Required"
+                    app:helperTextTextColor="@color/lavenda"
+                    app:startIconDrawable="@drawable/baseline_person_pin_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/religionId">
+
+                    </AutoCompleteTextView>
+
+                </com.google.android.material.textfield.TextInputLayout>
+\
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:helperText="Required"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="30"
+                    app:endIconMode="clear_text"
+                    app:helperTextTextColor="@color/lavenda"
+                    app:startIconDrawable="@drawable/ic_clock_time"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Enter DOB">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:id="@+id/stddobId"
+                        android:maxLength="30">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdNameid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:inputType="textPersonName"
+                    android:hint="Enter Student Name"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdPhoneid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:inputType="phone"
+                    android:hint="Phone"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdPassid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Password"
+                    android:inputType="numberPassword"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdAddressid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Address"
+                    android:inputType="textMultiLine"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdEmailid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter email"
+                    android:inputType="textEmailAddress"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/fatherNameid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Father Name"
+                    android:inputType="textPersonName"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/fatherPhoneid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Father Phone"
+                    android:inputType="phone"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/motherNameid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Mother Name"
+                    android:inputType="textPersonName"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/motherPhoneid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Mother Phone"
+                    android:inputType="phone"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/fatherNidid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Father Nid"
+                    android:inputType="numberDecimal"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/motherNidid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Mohter Nid"
+                    android:inputType="numberDecimal"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/stdNidid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter NID/Birth Reg No"
+                    android:inputType="textPersonName"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/guardianNameid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Guardian Name"
+                    android:inputType="textPersonName"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/guardianPhoneid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Guardian Phone"
+                    android:inputType="phone"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/guardianEmailid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Guardian Email"
+                    android:inputType="textEmailAddress"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:id="@+id/guardianAddressid"
+                    android:background="@drawable/lavender_border"
+                    android:layout_marginTop="20dp"
+                    android:padding="16dp"
+                    android:hint="Enter Guardian Address"
+                    android:inputType="textPersonName"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/lavenda"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Save"
+                    android:id="@+id/saveStdButton"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/lavenda"
+                    app:cornerRadius = "20dp"
+                    android:layout_marginBottom="50dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

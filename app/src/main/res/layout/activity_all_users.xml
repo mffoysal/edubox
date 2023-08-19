@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".AllUsersActivity">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="All Users List"
+                android:textAppearance="@style/ShapeAppearance.Material3.LargeComponent"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="23sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <ListView
+                android:id="@+id/allUsersListId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EC407A"
+                android:backgroundTint="#C4CAD1"
+                android:divider="#ffffc107"
+                android:dividerHeight="2dp"
+                android:listSelector="#EC624A"
+                android:textAlignment="center">
+
+
+            </ListView>
+
+        </LinearLayout>
+
+
+</LinearLayout>

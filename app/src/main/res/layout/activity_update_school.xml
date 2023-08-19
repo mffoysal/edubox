@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".scl.UpdateSchool">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:background = "@drawable/lavender_border"
+            android:padding="10dp"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Campus Data"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:textColor="@color/lavenda"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:id="@+id/uploadImage"
+                android:src="@drawable/baseline_person_4_24" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclName"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:inputType="textPersonName"
+                android:hint="Enter Campus Name"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclPhone"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:inputType="phone"
+                android:hint="Phone"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclPass"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Password"
+                android:inputType="numberPassword"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclAddress"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Address"
+                android:inputType="textMultiLine"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclEmail"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter email"
+                android:inputType="textEmailAddress"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclEiin"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Eiin/Reg NO"
+                android:inputType="number"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclWeb"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter WebSite"
+                android:inputType="textUri"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclAccount"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Account No"
+                android:inputType="text"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclBank"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Bank Name"
+                android:inputType="text"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclBalance"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Balance"
+                android:inputType="numberDecimal"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclItp1"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter IT Phone 1"
+                android:inputType="phone"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclItp2"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter IT Phone 2"
+                android:inputType="phone"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclItEmail"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter IT Email"
+                android:inputType="textEmailAddress"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/sclVerification"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:hint="Enter Verification Code"
+                android:inputType="text"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavenda"/>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Save"
+                android:id="@+id/savesclButton"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/lavenda"
+                app:cornerRadius = "20dp"
+                android:layout_marginBottom="50dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

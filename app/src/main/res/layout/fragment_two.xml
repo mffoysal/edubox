@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF5722"
+    tools:context=".twoFrag">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Wifi"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true"
+            android:id="@+id/swith1Id"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#CDDC39">
+
+        </Switch>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello Bangladesh"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/white"
+            android:textColor="#300707"
+            android:padding="8dp">
+
+        </TextView>
+        <CheckBox
+            android:id="@+id/ch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check One"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/black"
+            android:padding="8dp">
+
+        </CheckBox><CheckBox
+            android:id="@+id/ch2"
+            android:layout_width="wrap_content"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:text="Check Two"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/black">
+
+        </CheckBox><CheckBox
+            android:id="@+id/ch3"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Three"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/black">
+
+        </CheckBox><CheckBox
+            android:id="@+id/ch4"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Four"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/black">
+
+        </CheckBox>
+
+        <Button
+            android:id="@+id/showBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp">
+
+        </Button>
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/maleRadioId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textIsSelectable="true"
+                android:textAllCaps="true"
+                android:padding="8dp"
+                >
+
+            </RadioButton><RadioButton
+                android:id="@+id/femaleRadioId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FeMale"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textIsSelectable="true"
+                android:textAllCaps="true"
+                android:padding="8dp"
+                >
+
+            </RadioButton>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/showBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp">
+
+        </Button>
+
+        <TextView
+            android:id="@+id/textCheckId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textIsSelectable="true"
+            android:textColorHighlight="@color/white"
+            android:textColor="#300707"
+            android:padding="8dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

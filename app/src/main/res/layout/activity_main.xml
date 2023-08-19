@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:gravity=""
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:text="Welcome to EdUBox DashBoard"
+                android:textIsSelectable="true"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textAllCaps="true"
+                android:textColorHighlight="#ff22"
+                android:textAlignment="center"
+                android:textColorHint="#C37070"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <LinearLayout
+                android:textAlignment="center"
+
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#102287"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/stdId"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="textAutoComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="#9E73EC"
+                    android:backgroundTint="#E8E8E7"
+                    android:backgroundTintMode="add"
+                    android:hint="Enter Student Id"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="10dp">
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/sId"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:background="#FAF4F4"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="textAutoComplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:backgroundTint="#FDFCF6"
+                    android:backgroundTintMode="multiply"
+                    android:hint="Enter School Id"
+                    android:layout_marginBottom="10dp">
+
+                </EditText>
+                <EditText
+                    android:id="@+id/phone"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="#FAF4F4"
+                    android:backgroundTint="#FDFCF6"
+                    android:backgroundTintMode="multiply"
+                    android:hint="Enter Phone Number"
+                    android:layout_marginBottom="10dp">
+
+                </EditText>
+                <EditText
+                    android:id="@+id/name"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="textPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="#FAF4F4"
+                    android:backgroundTint="#FDFCF6"
+                    android:backgroundTintMode="multiply"
+                    android:hint="Enter Student Name"
+                    android:layout_marginBottom="10dp">
+
+                </EditText>
+                <EditText
+                    android:id="@+id/email"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:background="#FAF4F4"
+                    android:backgroundTint="#FDFCF6"
+                    android:backgroundTintMode="multiply"
+                    android:hint="Enter Email"
+                    android:layout_marginBottom="10dp">
+
+                </EditText>
+
+
+                <EditText
+                    android:id="@+id/password"
+                    android:textAlignment="center"
+                    android:textColor="#E62719"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:background="#FAF4F4"
+                    android:textIsSelectable="true"
+                    android:textColorHighlight="#ff22"
+                    android:inputType="numberPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FDFCF6"
+                    android:backgroundTintMode="multiply"
+                    android:hint="Enter New Password"
+                    android:padding="8dp">
+
+                </EditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAlignment="textEnd"
+                android:padding="10dp"
+                >
+                <Button
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/deleteButtonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#E81405"
+                    android:padding="5dp">
+
+                </Button>
+                <Button
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/updateButtonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UPdate"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#2196F3"
+                    android:padding="5dp">
+
+                </Button>
+                <Button
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/clearButtonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#A50E41"
+                    android:padding="5dp">
+
+                </Button>
+                <Button
+                    android:id="@+id/submitButtonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#0CB113"
+                    android:padding="5dp">
+
+                </Button>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resultId"
+                android:padding="5dp"
+                android:layout_margin="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#ff22"
+                android:textAlignment="center">
+
+            </TextView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="460dp"
+                        android:src="@drawable/abbu1"
+                        android:scaleType="fitXY"
+                        android:id="@+id/imageId"
+                        android:layout_margin="8dp">
+
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="460dp"
+                        android:src="@drawable/abbu2"
+                        android:scaleType="fitXY"
+                        android:id="@+id/image2Id"
+                        android:layout_margin="8dp">
+
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="460dp"
+                        android:src="@drawable/abbu3"
+                        android:scaleType="fitXY"
+                        android:id="@+id/image3Id"
+                        android:layout_margin="8dp">
+
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="460dp"
+                        android:src="@drawable/abbu4"
+                        android:scaleType="fitXY"
+                        android:id="@+id/image4Id"
+                        android:layout_margin="8dp">
+
+                    </ImageView>
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

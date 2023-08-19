@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardUseCompatPadding="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameTId"
+            android:layout_marginLeft="5dp"
+            android:text="Farhad Foysal"
+            android:textAlignment="textStart"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge">
+
+        </TextView>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="0"
+        android:orientation="vertical">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneTId"
+            android:background="#514040"
+            android:text="Farhad Foysal"
+            android:textAlignment="textStart"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/ShapeAppearance.Material3.MediumComponent">
+
+        </TextView>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTId"
+            android:text="Farhad Foysal"
+            android:textAlignment="textStart"
+            android:textSize="22sp"
+            android:background="#833F3F"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/ShapeAppearance.Material3.MediumComponent">
+
+    </TextView>
+    </LinearLayout>
+
+   <LinearLayout
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+       <TextView
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/passwordSclTId"
+           android:text="Farhad Foysal"
+           android:textAlignment="textStart"
+           android:background="#367C41"
+           android:textSize="22sp"
+           android:textStyle="normal"
+           android:layout_marginTop="5dp"
+           android:textAppearance="@style/ShapeAppearance.Material3.SmallComponent">
+
+       </TextView>
+       <TextView
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/stdIdTId"
+           android:text="Farhad Foysal"
+           android:background="#44A0A3"
+           android:textAlignment="textStart"
+           android:textSize="22sp"
+           android:textStyle="normal"
+           android:layout_marginTop="5dp"
+           android:textAppearance="@style/ShapeAppearance.Material3.SmallComponent">
+
+   </TextView>
+
+   </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".std.StudentDashboard">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_menu_manage" />
+        <ImageView
+            android:background="@color/banner_background"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:padding="5dp"
+            android:src="@drawable/fab_add" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:fontFamily="@font/poppins_bold"
+                    android:id="@+id/app_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/logo_name"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="28sp" />
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:elevation="8dp"
+                    android:layout_below="@id/app_name"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/search_text" />
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="30dp"
+                        android:src="@drawable/baseline_search_24" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 2"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:background="@drawable/card1"
+                            android:elevation="8dp"
+                            android:layout_height="60dp"
+                            android:layout_margin="10dp"
+                            android:layout_width="60dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"
+                                android:layout_width="30dp"
+                                android:src="@drawable/baseline_video_library_24" />
+                        </RelativeLayout>
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:text="Card 1"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
