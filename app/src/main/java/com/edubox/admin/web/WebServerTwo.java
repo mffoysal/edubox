@@ -240,6 +240,14 @@ public class WebServerTwo extends NanoHTTPD {
             } else {
                 return newFixedLengthResponse(Response.Status.UNAUTHORIZED, "text/plain", "Not authorized");
             }
+        } else if ("/getCopy".equals(uri)) {
+            String clipboardText = getClipboardText();
+
+            if (clipboardText != null) {
+                return newFixedLengthResponse(Response.Status.OK, MIME_PLAINTEXT, clipboardText);
+            } else {
+                return newFixedLengthResponse(Response.Status.OK, MIME_PLAINTEXT, "Clipboard is empty.");
+            }
         }
 
 
@@ -249,6 +257,22 @@ public class WebServerTwo extends NanoHTTPD {
         return newFixedLengthResponse(Response.Status.OK, mimeType, fileContent);
 
 
+    }
+
+    private String getClipboardText() {
+        ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+
+        if (clipboardManager != null && clipboardManager.hasPrimaryClip()) {
+            ClipData clipData = clipboardManager.getPrimaryClip();
+            if (clipData != null && clipData.getItemCount() > 0) {
+                CharSequence text = clipData.getItemAt(0).getText();
+                if (text != null) {
+                    return text.toString();
+                }
+            }
+        }
+
+        return null;
     }
 
     private Map<String, String> parseCookies(String cookieHeader) {

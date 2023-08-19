@@ -1,5 +1,7 @@
 package com.edubox.admin.web;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.Log;
 
@@ -19,6 +21,7 @@ import fi.iki.elonen.NanoHTTPD;
 public class WebServerMain extends NanoHTTPD {
     private static final String INDEX_HTML_PATH = "indexx.html";
     private static final String PROFILE_HTML_PATH = "profile.html";
+    public int PORT;
     private Map<String, String> sessionMap = new HashMap<>();
     private Context context;
     private IHTTPSession session;
@@ -30,6 +33,7 @@ public class WebServerMain extends NanoHTTPD {
 
     public WebServerMain(Context context, int port) {
         super(port);
+        this.PORT=port;
         this.context = context;
     }
 
@@ -164,6 +168,9 @@ public class WebServerMain extends NanoHTTPD {
         } else if ("/edu".equals(uri)) {
             // Handle a custom endpoint for "hello" route
             return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "Hello, from the server!");
+        } else if ("/copy".equals(uri)) {
+            // Handle a custom endpoint for "hello" route
+            return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "Hello, from the server!");
         }else if ("/login".equals(uri)) {
             // Simulate a successful login
 
@@ -233,6 +240,14 @@ public class WebServerMain extends NanoHTTPD {
             } else {
                 return newFixedLengthResponse(Response.Status.UNAUTHORIZED, "text/plain", "Not authorized");
             }
+        } else if ("/getCopy".equals(uri)) {
+            String clipboardText = getClipboardText();
+
+            if (clipboardText != null) {
+                return newFixedLengthResponse(Response.Status.OK, MIME_PLAINTEXT, clipboardText);
+            } else {
+                return newFixedLengthResponse(Response.Status.OK, MIME_PLAINTEXT, "Clipboard is empty.");
+            }
         }
 
 
@@ -242,6 +257,23 @@ public class WebServerMain extends NanoHTTPD {
         return newFixedLengthResponse(Response.Status.OK, mimeType, fileContent);
 
 
+    }
+
+
+    private String getClipboardText() {
+        ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+
+        if (clipboardManager != null && clipboardManager.hasPrimaryClip()) {
+            ClipData clipData = clipboardManager.getPrimaryClip();
+            if (clipData != null && clipData.getItemCount() > 0) {
+                CharSequence text = clipData.getItemAt(0).getText();
+                if (text != null) {
+                    return text.toString();
+                }
+            }
+        }
+
+        return null;
     }
 
     private Map<String, String> parseCookies(String cookieHeader) {
@@ -282,8 +314,17 @@ public class WebServerMain extends NanoHTTPD {
             postData = convertParametersToMap(session);
             if (!postData.isEmpty()) {
                 String message = postData.get("username");
+                String copy = postData.get("copytext");
                 if (message != null) {
                     return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "1");
+                } else if (copy!=null) {
+
+                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Edubox Text", copy);
+                    clipboard.setPrimaryClip(clip);
+
+                    return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "1");
+
                 } else {
                     return newFixedLengthResponse(Response.Status.BAD_REQUEST, NanoHTTPD.MIME_PLAINTEXT, "Invalid request.");
                 }

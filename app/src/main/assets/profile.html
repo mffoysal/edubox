@@ -473,7 +473,7 @@ body {
     <header class="tophead">
         <nav class="topnav">
             <a href="#main" class="btttnu-1"  id="HtmlBtn"><i class="bi bi-box-arrow-in-right"><span class="topname">Login</span> <i class="bi bi-share"></i></i></a>
-            <a href="#user" class="btttnu-2"><i class="bi bi-house"><span class="topname">Mess</span></i></a>
+            <a href="#user" class="btttnu-2"><i class="bi bi-house"><span class="topname">Copy</span></i></a>
             <a href="#others" class="btttnu-3"><i class="bi bi-bell"><span class="topname">Admin</span></i></a>
             <a href="#signup" class="btttnu-4"><i class="bi bi-plus-square"><span class="topname">Quiz</span><i class="bi bi-person-plus-fill"></i></i></a>
             <a href="#login" class="btttnu-5"><i class="bi bi-house-fill"><span id="logoutButton" class="topname">Logout</span></i></a>
@@ -587,7 +587,7 @@ body {
             <form role="form" id="sendText">
                 <fieldset>
                     <div class="form-group">
-                        <textarea rows="30" style="resize: vertical" class="form-control"  id="textTosend" name="copytext" placeholder="Enter text to send"></textarea>
+                        <textarea rows="25" style="resize: vertical" class="form-control"  id="textTosend" name="copytext" placeholder="Enter text to send"></textarea>
                         <!--                        <input class="form-control"  type="text" id="textToSendd" name="copytextt" placeholder="Enter text to send" />-->
                         <button class="form-control btn btn-lg btn-success btn-block" type="button" id="sendButton">Send Text to Copy</button>
                     </div>
@@ -2281,6 +2281,56 @@ function removeSessionCookie() {
     document.cookie = "sessionToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 </script>
+<script>
+        async function fetchClipboardText() {
+            try {
+                const response = await fetch("/getCopy");
+                if (response.ok) {
+                    const clipboardText = await response.text();
+                    const textareaElement = document.getElementById("textTosend");
+                    if (textareaElement) {
+                        textareaElement.value = clipboardText;
+                    } else {
+                        console.error("Textarea element not found.");
+                    }
+                } else {
+                    // Handle error case
+                    console.error("Error fetching clipboard text:", response.status);
+                }
+            } catch (error) {
+                console.error("Error fetching clipboard text:", error);
+            }
+        }
+
+        // Fetch clipboard text on page load
+        window.addEventListener("load", fetchClipboardText);
+    </script>
+
+<script>
+        const sendButton = document.getElementById("sendButtonn");
+        sendButton.addEventListener("click", async () => {
+            const textToSend = document.getElementById("textTosend").value;
+            const data = new URLSearchParams();
+            data.append("copytext", textToSend);
+
+            try {
+                const response = await fetch("/setCopy", {
+                    method: "POST",
+                    body: data,
+                });
+                if (response.ok) {
+                    // Handle success
+                    console.log("Text sent successfully.");
+                } else {
+                    // Handle error case
+                    console.error("Error sending text:", response.status);
+                }
+            } catch (error) {
+                console.error("Error sending text:", error);
+            }
+        });
+    </script>
+
 <script>
 <!--document.addEventListener("DOMContentLoaded", function () {-->
 <!--    const sessionToken = getSessionCookie();-->

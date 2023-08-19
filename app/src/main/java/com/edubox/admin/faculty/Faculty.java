@@ -3,8 +3,10 @@ package com.edubox.admin.faculty;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "faculty")
-public class Faculty {
+public class Faculty implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

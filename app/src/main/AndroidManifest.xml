@@ -87,6 +87,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".course.CoursePage"
+            android:exported="false" />
+        <activity
+            android:name=".course.CategoryPage"
+            android:exported="false" />
+        <activity
+            android:name=".faculty.TeachersPage"
+            android:exported="false" />
+        <activity
             android:name=".web.WebServer"
             android:exported="false" />
         <activity
@@ -97,7 +106,7 @@
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".attendance.SetAttendance"
             android:exported="false" />
