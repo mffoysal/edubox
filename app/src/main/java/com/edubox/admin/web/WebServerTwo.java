@@ -1,5 +1,7 @@
 package com.edubox.admin.web;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.Log;
 
@@ -166,6 +168,9 @@ public class WebServerTwo extends NanoHTTPD {
         } else if ("/edu".equals(uri)) {
             // Handle a custom endpoint for "hello" route
             return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "Hello, from the server!");
+        } else if ("/copy".equals(uri)) {
+            // Handle a custom endpoint for "hello" route
+            return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "Hello, from the server!");
         }else if ("/login".equals(uri)) {
             // Simulate a successful login
 
@@ -284,8 +289,17 @@ public class WebServerTwo extends NanoHTTPD {
             postData = convertParametersToMap(session);
             if (!postData.isEmpty()) {
                 String message = postData.get("username");
+                String copy = postData.get("copytext");
                 if (message != null) {
                     return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "1");
+                } else if (copy!=null) {
+
+                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Edubox Text", copy);
+                    clipboard.setPrimaryClip(clip);
+
+                    return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "1");
+
                 } else {
                     return newFixedLengthResponse(Response.Status.BAD_REQUEST, NanoHTTPD.MIME_PLAINTEXT, "Invalid request.");
                 }

@@ -582,6 +582,27 @@ body {
     <section id="postUser" class="section msssgu-2">
 
 
+        <div class="container">
+
+            <form role="form" id="sendText">
+                <fieldset>
+                    <div class="form-group">
+                        <textarea rows="30" style="resize: vertical" class="form-control"  id="textTosend" name="copytext" placeholder="Enter text to send"></textarea>
+                        <!--                        <input class="form-control"  type="text" id="textToSendd" name="copytextt" placeholder="Enter text to send" />-->
+                        <button class="form-control btn btn-lg btn-success btn-block" type="button" id="sendButton">Send Text to Copy</button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <div id="cmyalert" style="display:none;">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="alert alert-info">
+                        <center><span id="calerttext"></span></center>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
     </section>
@@ -2199,6 +2220,45 @@ $(document).ready(function(){
 			alert('Please input Phone fields to Login');
 		}
 	});
+
+
+		$(document).on('click', '#sendButton', function(){
+		if($('#textTosend').val()!=''){
+			$('#sendButton').text('Sending...');
+			$('#myalert').slideUp();
+			var textform = $('#sendText').serialize();
+			setTimeout(function(){
+				$.ajax({
+					method: 'POST',
+					url: '/copy',
+					data: textform,
+					success:function(data){
+						if(data=="1"){
+							$('#cmyalert').slideDown();
+							$('#calerttext').text('Send Successful. User Verified!');
+							$('#sendButton').text('Thank You!');
+							$('#sendText')[0].reset();
+							setTimeout(function(){
+								location.reload();
+							}, 2000);
+						}
+						else{
+							$('#cmyalert').slideDown();
+							$('#calerttext').html(data);
+							$('#sendButton').text('Try Again!');
+							$('#sendText')[0].reset();
+						}
+					}
+				});
+			}, 2000);
+		}
+		else{
+			alert('Please input Phone fields to Login');
+		}
+	    });
+
+
+
 });
 </script>
 <script>
@@ -2222,21 +2282,50 @@ function removeSessionCookie() {
 }
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+<!--document.addEventListener("DOMContentLoaded", function () {-->
+<!--    const sessionToken = getSessionCookie();-->
+<!--    const profileElement = document.getElementById("profile");-->
+
+<!--    if (sessionToken) {-->
+<!--        // User is logged in, display profile content-->
+<!--        const username = "Farhad Foysal"+sessionToken; // Replace with actual username-->
+<!--        profileElement.innerHTML = "<h1>Welcome, " + username + "!</h1>" +-->
+<!--                                   "<a href=\"/out\">Logout</a>";-->
+<!--    } else {-->
+<!--        // User is not logged in, display login link-->
+<!--        profileElement.innerHTML = "<a href=\"/login\">Login</a>";-->
+<!--    }-->
+<!--});-->
+
+
+document.addEventListener("DOMContentLoaded", async function () {
     const sessionToken = getSessionCookie();
     const profileElement = document.getElementById("profile");
 
     if (sessionToken) {
-        // User is logged in, display profile content
-        const username = "Farhad Foysal"; // Replace with actual username
-        profileElement.innerHTML = "<h1>Welcome, " + username + "!</h1>" +
-                                   "<a href=\"/logout\">Logout</a>";
+        // Fetch username using AJAX
+        try {
+            const response = await fetch("/getUsername");
+            if (response.ok) {
+                const username = await response.text();
+                profileElement.innerHTML = "<h1>Welcome, " + username + "!</h1>" +
+                                           "<a href=\"/out\">Logout</a>";
+            } else {
+                // Handle error case
+                console.error("Error fetching username:", response.status);
+            }
+        } catch (error) {
+            console.error("Error fetching username:", error);
+        }
     } else {
         // User is not logged in, display login link
         profileElement.innerHTML = "<a href=\"/login\">Login</a>";
     }
 });
+
+
 </script>
+
 <script>
 // Example: Logging out and removing sessionToken
 document.getElementById("logoutButton").addEventListener("click", function () {
@@ -2246,4 +2335,21 @@ document.getElementById("logoutButton").addEventListener("click", function () {
 <!--    location.href = location.href;-->
     // Redirect or perform other actions after logout
 });
+</script>
+<script>
+        function sendMessage() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/send", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById("response").innerText = "Message sent successfully!";
+                    } else {
+                        document.getElementById("response").innerText = "Failed to send message.";
+                    }
+                }
+            };
+            xhr.send(JSON.stringify({ "message": "Hello from the web interface!" }));
+        }
 </script>
