@@ -1,16 +1,82 @@
 package com.edubox.admin.section;
 
-public class Section {
+import java.io.Serializable;
+
+public class Section implements Serializable {
 	
 	private int id,aStatus=1,secNumStd=0;
 	private String secName,sId,clsId,subId,sessionId,secCode,secFee,secTeaId;
 	private String sync_key;
-	private int sync_status= 0;
+	private int sync_status= 0, cls_id;
 	private String uniqueId;
 	public void setUniqueId(String uniqueId){
 		this.uniqueId=uniqueId;
 	}public String getUniqueId(){
 		return uniqueId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSecNumStd() {
+		return secNumStd;
+	}
+
+	public void setSecNumStd(int secNumStd) {
+		this.secNumStd = secNumStd;
+	}
+
+	public String getSecName() {
+		return secName;
+	}
+
+	public void setSecName(String secName) {
+		this.secName = secName;
+	}
+
+	public String getClsId() {
+		return clsId;
+	}
+
+	public void setClsId(String clsId) {
+		this.clsId = clsId;
+	}
+
+	public String getSecCode() {
+		return secCode;
+	}
+
+	public void setSecCode(String secCode) {
+		this.secCode = secCode;
+	}
+
+	public String getSecFee() {
+		return secFee;
+	}
+
+	public void setSecFee(String secFee) {
+		this.secFee = secFee;
+	}
+
+	public String getSecTeaId() {
+		return secTeaId;
+	}
+
+	public void setSecTeaId(String secTeaId) {
+		this.secTeaId = secTeaId;
+	}
+
+	public int getCls_id() {
+		return cls_id;
+	}
+
+	public void setCls_id(int cls_id) {
+		this.cls_id = cls_id;
 	}
 
 	public void setSessionId(String subId){

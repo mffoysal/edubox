@@ -19,24 +19,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.edubox.admin.R;
 import com.edubox.admin.cls.Class;
 import com.edubox.admin.cls.ClassPanel;
-import com.edubox.admin.std.student;
+import com.edubox.admin.section.Section;
+import com.edubox.admin.section.SectionPanel;
 
 import java.util.List;
 
-public class AllClassesAdapter extends RecyclerView.Adapter<AllClassesAdapter.MyViewHolder4> {
+public class AllSectionsAdapter extends RecyclerView.Adapter<AllSectionsAdapter.MyViewHolder4> {
 
     private Context context;
-    private List<Class> dataList;
+    private List<Section> dataList;
     private AdapterView.OnItemClickListener itemClickListener;
     private OnEditClickListener editClickListener;
     private OnDeleteClickListener deleteClickListener;
 
-    public void setSearchList(List<Class> dataSearchList){
+    public void setSearchList(List<Section> dataSearchList){
         this.dataList = dataSearchList;
         notifyDataSetChanged();
     }
 
-    public AllClassesAdapter(Context context, List<Class> dataList, AdapterView.OnItemClickListener listener, OnEditClickListener editClickListener, OnDeleteClickListener deleteClickListener){
+    public AllSectionsAdapter(Context context, List<Section> dataList, AdapterView.OnItemClickListener listener, OnEditClickListener editClickListener, OnDeleteClickListener deleteClickListener){
         this.context = context;
         this.dataList = dataList;
         this.itemClickListener = listener;
@@ -53,19 +54,19 @@ public class AllClassesAdapter extends RecyclerView.Adapter<AllClassesAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder4 holder, int position) {
-        Class cls = dataList.get(position);
-        holder.recTitle.setText(dataList.get(position).getclsName());
-        holder.recDesc.setText(dataList.get(position).getclsCode());
+        Section sec = dataList.get(position);
+        holder.recTitle.setText(dataList.get(position).getsecName());
+        holder.recDesc.setText(dataList.get(position).getsecCode());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ClassPanel.class);
-                intent.putExtra("clsName", dataList.get(holder.getAdapterPosition()).getclsName());
-                intent.putExtra("clsCode", dataList.get(holder.getAdapterPosition()).getclsCode());
+                Intent intent = new Intent(context, SectionPanel.class);
+                intent.putExtra("secName", dataList.get(holder.getAdapterPosition()).getsecName());
+                intent.putExtra("secCode", dataList.get(holder.getAdapterPosition()).getsecCode());
                 intent.putExtra("uniqueId", dataList.get(holder.getAdapterPosition()).getUniqueId());
-                intent.putExtra("sId", dataList.get(holder.getAdapterPosition()).getSId());
-                intent.putExtra("class",cls);
+                intent.putExtra("sId", dataList.get(holder.getAdapterPosition()).getsId());
+                intent.putExtra("section",sec);
 
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
@@ -85,11 +86,11 @@ public class AllClassesAdapter extends RecyclerView.Adapter<AllClassesAdapter.My
     }
 
     public interface OnEditClickListener{
-        void onEditClick(Class cls);
+        void onEditClick(Section sec);
     }
 
     public interface OnDeleteClickListener{
-        void onDeleteClick(Class cls);
+        void onDeleteClick(Section sec);
     }
 
     class MyViewHolder4 extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -100,10 +101,10 @@ public class AllClassesAdapter extends RecyclerView.Adapter<AllClassesAdapter.My
         ImageView options;
         RelativeLayout foreground;
         private AdapterView.OnItemClickListener clickListener;
-        private AllClassesAdapter.OnEditClickListener editClickListener;
-        private AllClassesAdapter.OnDeleteClickListener deleteClickListener;
+        private AllSectionsAdapter.OnEditClickListener editClickListener;
+        private AllSectionsAdapter.OnDeleteClickListener deleteClickListener;
 
-        public MyViewHolder4(@NonNull View itemView, AdapterView.OnItemClickListener clickListener, AllClassesAdapter.OnEditClickListener editClickListener, AllClassesAdapter.OnDeleteClickListener deleteClickListener) {
+        public MyViewHolder4(@NonNull View itemView, AdapterView.OnItemClickListener clickListener, AllSectionsAdapter.OnEditClickListener editClickListener, AllSectionsAdapter.OnDeleteClickListener deleteClickListener) {
             super(itemView);
             this.clickListener = clickListener;
             this.editClickListener = editClickListener;
@@ -152,7 +153,7 @@ public class AllClassesAdapter extends RecyclerView.Adapter<AllClassesAdapter.My
             popupMenu.show();
         }
 
-        public void showData(Class cls) {
+        public void showData(Section sec) {
 
         }
 
