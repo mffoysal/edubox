@@ -22,7 +22,7 @@
             android:id="@+id/search"
             app:iconifiedByDefault="false"
             app:searchHintIcon="@null"
-            app:queryHint="Search..."
+            app:queryHint="Search Your Class/Semester..."
             android:focusable="false"
             app:closeIcon="@drawable/ic_baseline_clear_24"
             app:searchIcon="@drawable/baseline_search_24"

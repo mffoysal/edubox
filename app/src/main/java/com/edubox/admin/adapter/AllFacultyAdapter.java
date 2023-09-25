@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.edubox.admin.R;
 import com.edubox.admin.faculty.Faculty;
+import com.edubox.admin.faculty.FacultyDetails;
 import com.edubox.admin.std.StudentDetails;
 import com.edubox.admin.std.student;
 
@@ -61,7 +62,7 @@ public class AllFacultyAdapter extends RecyclerView.Adapter<AllFacultyAdapter.My
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, StudentDetails.class);
+                Intent intent = new Intent(context, FacultyDetails.class);
                 intent.putExtra("stdName", dataList.get(holder.getAdapterPosition()).getName());
                 intent.putExtra("phone", dataList.get(holder.getAdapterPosition()).getPhone());
                 intent.putExtra("stdId", dataList.get(holder.getAdapterPosition()).gettId());

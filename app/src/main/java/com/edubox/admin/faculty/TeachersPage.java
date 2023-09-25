@@ -129,6 +129,7 @@ public class TeachersPage extends BaseMenu implements AdapterView.OnItemClickLis
         }
         intent = getIntent();
         actionbar = getSupportActionBar();
+        actionbar.setTitle(actionbar.getTitle()+" Faculty");
         if (intent != null && intent.hasExtra("user")) {
             String url = intent.getStringExtra("user");
 //            actionbar.setTitle(actionbar.getTitle()+" "+url);

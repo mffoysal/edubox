@@ -31,7 +31,7 @@ public class Class implements Serializable {
 	}
 
 
-	private int maxSec=10;
+	private int maxSec=6;
 	public void setMaxSec(int uniqueId){
 		this.maxSec=uniqueId;
 	}public int getMaxSec(){

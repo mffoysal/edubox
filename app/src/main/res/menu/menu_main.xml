@@ -75,6 +75,15 @@
 
     </item>
     <item
+        android:id="@+id/updateAppMenu"
+        android:title="Update~App"
+        android:actionLayout="@layout/custom_menu_item_layout"
+        android:icon="@drawable/baseline_apps_24"
+        >
+
+    </item>
+
+    <item
         android:id="@+id/flogoutId"
         android:title="Logout"
         android:actionLayout="@layout/custom_menu_item_layout"

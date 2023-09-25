@@ -521,7 +521,7 @@ http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
     <color name="black">#000000</color>
     <color name="colorPrimary">#FDE404</color>
     <color name="dark_red">#FF3E3E</color>
-    <color name="colorAccent">#108FF3</color>
+    <color name="colorAccent">#FF4081</color>
     <color name="banner_background">#FFCAC6</color>
     <color name="card1">#FCBAB5</color>
 </resources>

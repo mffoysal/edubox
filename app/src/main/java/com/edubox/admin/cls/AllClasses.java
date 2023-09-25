@@ -121,6 +121,7 @@ public class AllClasses extends BaseMenu implements AdapterView.OnItemClickListe
         }
         intent = getIntent();
         actionbar = getSupportActionBar();
+        actionbar.setTitle(actionbar.getTitle()+" Class/Semester");
         if (intent != null && intent.hasExtra("user")) {
             String url = intent.getStringExtra("user");
 //            actionbar.setTitle(actionbar.getTitle()+" "+url);

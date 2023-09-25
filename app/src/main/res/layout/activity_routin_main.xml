@@ -12,7 +12,7 @@
         android:id="@+id/main_splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/splashColor">
+        android:background="@color/antiquewhite">
 
         <ImageView
             android:id="@+id/imageView3"

@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.edubox.admin.LoginActivity;
 import com.edubox.admin.Logout;
 import com.edubox.admin.R;
+import com.edubox.admin.common.FM;
 import com.edubox.admin.login.LoginMainActivity;
 import com.edubox.admin.welcome.onboard.GetStarted;
 import com.edubox.admin.welcome.onboard.ViewPagerAdapter;
@@ -63,12 +64,16 @@ public class ViewOne extends AppCompatActivity {
         logout = new Logout(getApplicationContext());
         if (logout.isInstalled()){
 //            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+
 //            Intent intent = new Intent(getApplicationContext(), createSchool.class);
 
 //            Intent intent = new Intent(getApplicationContext(), FM.class);
+
 //            Intent intent = new Intent(getApplicationContext(), AllDepartment.class);
 //            Intent intent = new Intent(getApplicationContext(), DepartmentPanel.class);
+
             Intent intent = new Intent(getApplicationContext(), LoginMainActivity.class);
+
 //            Intent intent = new Intent(getApplicationContext(), RoutinMain.class);
 //            Intent intent = new Intent(getApplicationContext(), DailyRoutine.class);
 //            Intent intent = new Intent(getApplicationContext(), MonthlyRoutine.class);

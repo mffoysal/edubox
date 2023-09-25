@@ -1,4 +1,4 @@
-package com.edubox.admin.cls;
+package com.edubox.admin.faculty;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,27 +14,24 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.edubox.admin.Admin;
 import com.edubox.admin.BaseMenu;
 import com.edubox.admin.DatabaseManager;
 import com.edubox.admin.Internet;
 import com.edubox.admin.Logout;
+import com.edubox.admin.MainPanelActivity;
 import com.edubox.admin.Network;
 import com.edubox.admin.R;
 import com.edubox.admin.User;
 import com.edubox.admin.UserDAO;
-import com.edubox.admin.adapter.AllClassesAdapter;
-import com.edubox.admin.adapter.AllSectionsAdapter;
 import com.edubox.admin.adapter.AllStudentsAdapter;
 import com.edubox.admin.login.LoginMainActivity;
 import com.edubox.admin.scl.School;
 import com.edubox.admin.scl.SchoolCallback;
 import com.edubox.admin.scl.SchoolDAO;
 import com.edubox.admin.scl.schoolDep;
-import com.edubox.admin.section.Section;
+import com.edubox.admin.std.UpdateStudent;
 import com.edubox.admin.std.student;
 import com.edubox.admin.user.UserCallback;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -48,10 +44,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ClassPanel extends BaseMenu implements AdapterView.OnItemClickListener, AllSectionsAdapter.OnEditClickListener, AllSectionsAdapter.OnDeleteClickListener{
+public class FacultyDetails extends BaseMenu {
 
     //common for activity start
     private Logout logout;
@@ -83,29 +78,32 @@ public class ClassPanel extends BaseMenu implements AdapterView.OnItemClickListe
     //common for all activities end
 
     RecyclerView recyclerView;
-    List<Section> dataList;
-    AllSectionsAdapter adapter;
-    Section androidData;
+    List<com.edubox.admin.std.student> dataList;
+    AllStudentsAdapter adapter;
+    student androidData;
     SearchView searchView;
     private FloatingActionButton fab,fabb;
 
     TextView detailDesc;
     CollapsingToolbarLayout detailTitle;
     ImageView detailImage;
-    private Class cls;
+    private student student;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_class_panel);
+        setContentView(R.layout.activity_student_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        detailDesc = findViewById(R.id.stdId);
+        detailTitle = findViewById(R.id.profileTitle);
+//        detailImage = findViewById(R.id.detailImage);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
-//            detailDesc.setText(bundle.getString("stdId"));
-//            detailTitle.setTitle(bundle.getString("stdName"));
+            detailDesc.setText(bundle.getString("stdId"));
+            detailTitle.setTitle(bundle.getString("stdName"));
         }
 
 
@@ -132,7 +130,7 @@ public class ClassPanel extends BaseMenu implements AdapterView.OnItemClickListe
         }
         intent = getIntent();
         actionbar = getSupportActionBar();
-        actionbar.setTitle(actionbar.getTitle()+" Section");
+        actionbar.setTitle(actionbar.getTitle()+" Faculty Details");
         if (intent != null && intent.hasExtra("user")) {
             String url = intent.getStringExtra("user");
 //            actionbar.setTitle(actionbar.getTitle()+" "+url);
@@ -183,99 +181,47 @@ public class ClassPanel extends BaseMenu implements AdapterView.OnItemClickListe
         //Common for all activity End
 
 
-        if (intent != null && intent.hasExtra("class")) {
-            cls = (Class) intent.getSerializableExtra("class");
-
-            String clsName = cls.getclsName();
-            Toast.makeText(this,""+cls.getclsId(),Toast.LENGTH_SHORT).show();
-
-            String clsCode = cls.getclsCode();
-            int  maxSec = cls.getMaxSec();
-            String uId = cls.getUniqueId();
-            String sId = cls.getSId();
-
-        }
-
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GenerateClasses.class);
+                //Intent put extra
+                Intent intent = new Intent(getApplicationContext(), UpdateStudent.class);
+                intent.putExtra("student", student);
+                startActivity(intent);
+            }
+        });
+
+        fabb = findViewById(R.id.fabb);
+        fabb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent put extra
+                Intent intent = new Intent(getApplicationContext(), MainPanelActivity.class);
+                intent.putExtra("student", student);
                 startActivity(intent);
             }
         });
 
 
-        recyclerView = findViewById(R.id.recyclerView);
-        searchView = findViewById(R.id.search);
+        if (intent != null && intent.hasExtra("student")) {
+            student = (student) intent.getSerializableExtra("student");
 
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+            String stdName = student.getStdName();
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                searchList(newText);
-                return true;
-            }
-        });
+            Toast.makeText(this,""+student.getStdId(),Toast.LENGTH_SHORT).show();
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        dataList = new ArrayList<Section>();
-        Section secc = new Section();
-        secc.setsecCode("22");
-        secc.setsecName("2");
-//        dataList.add(secc);
-        adapter = new AllSectionsAdapter(getApplicationContext(), dataList,this,this,this);
-        recyclerView.setAdapter(adapter);
-
-        setSections();
-
-        if (internet.isInternetConnection()){
-
-        }else {
+            String stdPhone = student.getstdPhone();
+            String stdId = student.getStdId();
+            String sId = student.getSId();
 
         }
 
-
-
-
-
-
+        
+        
     }
 
-    private void setSections() {
-        if (cls.getMaxSec()!=0){
-
-            int i = 0;
-            for (i=1;i<=cls.getMaxSec();i++){
-
-                Section sec = new Section();
-                sec.setsecName(""+i);
-                sec.setsecCode(cls.getclsName()+""+i);
-                sec.setCls_id(cls.getId());
-                sec.setClsId(""+cls.getId());
-                sec.setid(new Admin().uniqueId());
-                sec.setId(new Admin().uniqueId());
-                sec.setsId(cls.getSId());
-                sec.setSessionId(cls.getSessionId());
-                sec.setUniqueId(cls.getUniqueId());
-                dataList.add(sec);
-            }
-            adapter.notifyDataSetChanged();
-
-        }else {
-
-        }
-    }
-
-
-    // common start
     private void handleSchoolNotFound() {
         school = new SchoolDAO(database).getSchoolBySID(user.getSId());
         logout.saveSchool(school);
@@ -326,34 +272,6 @@ public class ClassPanel extends BaseMenu implements AdapterView.OnItemClickListe
             }
         });
         return new School();
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onEditClick(Section sec) {
-
-    }
-
-    @Override
-    public void onDeleteClick(Section sec) {
-
-    }
-//common end
-
-    private void searchList(String text){
-        List<Section> dataSearchList = new ArrayList<>();
-        for (Section cls : dataList){
-            if (cls.getsecCode().toLowerCase().contains(text.toLowerCase())) {
-                dataSearchList.add(cls);
-            }
-        }
-        if (dataSearchList.isEmpty()){
-            Toast.makeText(this, "Found", Toast.LENGTH_SHORT).show();
-        } else adapter.setSearchList(dataSearchList);
     }
 
 }

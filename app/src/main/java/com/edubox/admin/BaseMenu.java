@@ -16,6 +16,7 @@ import com.edubox.admin.scl.SchoolPanel;
 import com.edubox.admin.settings.Permission;
 import com.edubox.admin.sms.NotificationHelper;
 import com.edubox.admin.sms.sendSmss;
+import com.edubox.admin.update.AppUpdate;
 import com.edubox.admin.web.WifiWeb;
 
 import java.io.Serializable;
@@ -41,6 +42,7 @@ public class BaseMenu extends AppCompatActivity {
         MenuItem menuItem8 = menu.findItem(R.id.aboutId);
         MenuItem menuItem9 = menu.findItem(R.id.setSettings);
         MenuItem menuItem10 = menu.findItem(R.id.wifiWebMenu);
+        MenuItem menuItem11 = menu.findItem(R.id.updateAppMenu);
 //        SpannableString spannableString = new SpannableString(menuItem.getTitle());
 //        spannableString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(this, R.color.menu_item_color)),
 //                0, spannableString.length(), 0);
@@ -61,6 +63,7 @@ public class BaseMenu extends AppCompatActivity {
         setColor(menuItem8);
         setColor(menuItem9);
         setColor(menuItem10);
+        setColor(menuItem11);
         return true;
     }
 
@@ -139,6 +142,13 @@ public class BaseMenu extends AppCompatActivity {
         }else if (item.getItemId()==R.id.wifiWebMenu) {
 
             Intent intent = new Intent(getApplicationContext(), WifiWeb.class);
+            intent.putExtra("users","01585855075");
+            startActivity(intent);
+
+            return true;
+        }else if (item.getItemId()==R.id.updateAppMenu) {
+
+            Intent intent = new Intent(getApplicationContext(), AppUpdate.class);
             intent.putExtra("users","01585855075");
             startActivity(intent);
 

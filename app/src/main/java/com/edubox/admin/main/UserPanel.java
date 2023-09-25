@@ -44,6 +44,7 @@ import com.edubox.admin.session.AllSession;
 import com.edubox.admin.settings.Permission;
 import com.edubox.admin.sms.NotificationHelper;
 import com.edubox.admin.sms.sendSmss;
+import com.edubox.admin.update.AppUpdate;
 import com.edubox.admin.user.UserCallback;
 import com.edubox.admin.web.WifiWeb;
 import com.google.firebase.auth.FirebaseAuth;
@@ -298,6 +299,13 @@ public class UserPanel extends AppCompatActivity implements View.OnClickListener
         }else if (item.getItemId()==R.id.wifiWebMenuId) {
 
             Intent intent = new Intent(getApplicationContext(), WifiWeb.class);
+            intent.putExtra("users","01585855075");
+            startActivity(intent);
+
+            return true;
+        }else if (item.getItemId()==R.id.updateAppMenu) {
+
+            Intent intent = new Intent(getApplicationContext(), AppUpdate.class);
             intent.putExtra("users","01585855075");
             startActivity(intent);
 

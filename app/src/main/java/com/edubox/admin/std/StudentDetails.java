@@ -128,6 +128,7 @@ public class StudentDetails extends BaseMenu {
         }
         intent = getIntent();
         actionbar = getSupportActionBar();
+        actionbar.setTitle(actionbar.getTitle()+" Student Details");
         if (intent != null && intent.hasExtra("user")) {
             String url = intent.getStringExtra("user");
 //            actionbar.setTitle(actionbar.getTitle()+" "+url);

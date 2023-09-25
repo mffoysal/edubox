@@ -128,6 +128,7 @@ public class AllSubjects extends BaseMenu implements View.OnClickListener, ItemT
         }
         intent = getIntent();
         actionbar = getSupportActionBar();
+        actionbar.setTitle(actionbar.getTitle()+" Subject/Course");
         if (intent != null && intent.hasExtra("user")) {
             String url = intent.getStringExtra("user");
 //            actionbar.setTitle(actionbar.getTitle()+" "+url);
